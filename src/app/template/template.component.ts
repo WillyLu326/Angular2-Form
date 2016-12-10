@@ -14,12 +14,16 @@ export class TemplateComponent implements OnInit {
   	constructor() { }
 
   	ngOnInit() {
-  		this.user = { name: 'Willy', username: 'willylu' };
+  		this.user = { name: '', username: '' };
   	}
 
   	processUser() {
   		console.log(this.user);
   		this.submitted = true;
+  	}
+
+  	show(name) {
+  		console.log(name);
   	}
 
 }
