@@ -4,16 +4,23 @@
 		<label for="name">Name</label>
 		<input type="text" class="form-control" name="name" required
 			formControlName="name">
-		<div class="help-block">
-			{{ nameErrorMsg }}
+		<div class="help-block" *ngIf="errorFields.name">
+			<div class="alert alert-danger" role="alert">
+			  <span class="glyphicon glyphicon-exclamation-sign"></span>
+			  {{ errorFields.name }}
+			</div>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="username">Username</label>
 		<input type="text" class="form-control" name="username" required formControlName="username">
-		<div class="help-block">
-			{{ usernameErrorMsg }}
+		<div class="help-block" *ngIf="errorFields.username">
+			<div class="alert alert-danger" role="alert">
+		  		<span class="glyphicon glyphicon-exclamation-sign">
+		  		</span>
+		  	{{ errorFields.username }}
+		</div>
 		</div>
 	</div>
 
