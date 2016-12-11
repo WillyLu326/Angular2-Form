@@ -45,8 +45,16 @@ export class ReactiveComponent implements OnInit {
   	buildForm() {
   		this.form = this.fb.group({
   			name: ['', [ Validators.minLength(3), Validators.maxLength(6)]],
-  			username: ['', [ Validators.pattern(this.re)]]
+  			username: ['', [ Validators.pattern(this.re)]],
+  			addresses: this.fb.array([
+  				this.fb.group({
+  					city: [''],
+  					state: ['']
+  				})
+  			])
   		})
+
+  		console.log(this.form);
   	
   		// watch changes and validate
   		this.form.valueChanges.subscribe( data => this.validateForm());
