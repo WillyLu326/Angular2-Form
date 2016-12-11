@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive',
@@ -75,6 +75,21 @@ export class ReactiveComponent implements OnInit {
 				}
 			}
 		}	
+  	}
+
+  	// Add an address
+  	addAddress() {
+  		let addresses: FormArray = <FormArray>this.form.get('addresses');
+  		addresses.push(this.fb.group({
+  			city: [''],
+  			state: ['']
+  		}));
+  	}
+
+  	// Remove an address
+  	removeAddress(index) {
+  		let addresses: FormArray = <FormArray>this.form.get('addresses');
+  		addresses.removeAt(index);
   	}
 
   	processData() {

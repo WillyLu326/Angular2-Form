@@ -29,6 +29,11 @@
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					Address #{{ i + 1 }}
+					<span class="text-right"
+						*ngIf=" form.controls.addresses.controls.length > 1 " 
+						(click) = "removeAddress(i) ">
+						Remove
+					</span>
 				</div>
 
 				<div class="panel-body" [formGroupName]="i">
@@ -46,7 +51,13 @@
 		</div>	
 	</div>
 
-	<div class="form-group">
-		<button class="btn btn-info">Save</button>
+	<!-- Add address -->
+	<div class="text-right">
+		<button class="btn btn-success" (click)="addAddress()">Add Address</button>
 	</div>
+
+	<div class="form-group">
+		<button class="btn btn-info" [disabled]="!form.valid">Save</button>
+	</div>
+
 </form>
